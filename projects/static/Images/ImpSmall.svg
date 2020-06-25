@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="382" height="70" viewBox="0 0 382 70">
+  <g id="Pagination" transform="translate(-517 -120)">
+    <circle id="Ellipse_271" data-name="Ellipse 271" cx="23" cy="23" r="23" transform="translate(839 120)" fill="#dcebf7"/>
+    <text id="Research_Exploration" data-name="Research &amp; Exploration" transform="translate(574 187)" fill="#2699fb" font-size="10" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-56.406" y="0">Research &amp; Exploration</tspan></text>
+    <text id="Design_Development" data-name="Design &amp; Development" transform="translate(718 187)" fill="#2699fb" font-size="10" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-54.456" y="0">Design &amp; Development</tspan></text>
+    <text id="Implementation" transform="translate(862 187)" fill="#2699fb" font-size="10" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-36.948" y="0">Implementation</tspan></text>
+    <circle id="Ellipse_270" data-name="Ellipse 270" cx="3" cy="3" r="3" transform="translate(571 140)" fill="#2699fb"/>
+    <circle id="Ellipse_272" data-name="Ellipse 272" cx="3" cy="3" r="3" transform="translate(715 140)" fill="#2699fb"/>
+    <circle id="Ellipse_273" data-name="Ellipse 273" cx="3" cy="3" r="3" transform="translate(859 140)" fill="#2699fb"/>
+    <rect id="Rectangle_732" data-name="Rectangle 732" width="130" height="2" transform="translate(581 142)" fill="#f1f9ff"/>
+    <rect id="Rectangle_733" data-name="Rectangle 733" width="130" height="2" transform="translate(725 142)" fill="#f1f9ff"/>
+  </g>
+</svg>

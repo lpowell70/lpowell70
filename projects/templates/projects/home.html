@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+
+    <div class="row">
+        <div class="col s7 center intro-text" style="float: left;">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+            <h2 id="title">AI Governance Assurance Tool</h2>
+            <br/>
+            <p class="introtext">Welcome to the AI Governance Assurance Tool (Alpha). This tool is meant to allow your team to experiment and develop using the latest advanced analytics and machine learning techniques and tools while providing assurance to the department that it is being done responsibly.</p>
+            <br/>
+            <a class="btn light-blue darken-2">GET STARTED</a>
+            <a class="btn text-light-blue darken-2">LEARN MORE</a>
+        </div>
+        <div class="col s5 intro-img" style="float: right;">
+          <img src="{% static 'Images/code_development_.svg' %}" alt="AI Assurance" width="500" height="600">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s6">
+            <br/>
+          <img src="{% static 'Images/checklist_.svg' %}" alt="AI checklist" width="350" height="350">
+        </div>
+        <div class="col s6">
+          <h5 class="center" id="methodology">Our Methodology </h5>
+            <p>Governance of Artificial intelligence at ESDC is needed in order to establish processes of decision-making among stakeholders involved in developing and implementing AI solutions. The objective of AI governance is to create a system of trust so the department can move forward with developing and procuring valuable AI solutions confidently, knowing that considerations related to privacy, security, ethics, law, transparency, bias and performance are made along the way.</p>
+            <p>The design of the governance process is <b>formatted as a checklist of questions</b> all AI projects will need to answer in order to provide assurance that the solution has been created responsibly. However, team are not left to figure it all out themselves, the AI support function made up of CDO and IITB employees, will provide development teams advisory support that will help streamline the assurance process and keep team in compliance with the Treasury Board Secretariat Directive on Automated Decision-Making. </p>
+        </div>
+    </div>
+
+    <!-- Cards -->
+
+    <br/>
+    <div class="row">
+      <div class="col s4">
+        <div class="card hoverable">
+          <br/>
+          <h6 class="card-title blue-text text-darken-2 center">Research & Exploration</h6>
+          <br/>
+          <div class="card-image">
+            <img src="{% static 'Images/product_manager.svg' %}" width="179" height="135">
+          </div>
+          <div class="card-content">
+            <p>Enables the department to openly explore the possible. Business areas are encouraged to innovate and investigate how AI can be applied to a particular set of data to determine if it can improve a business process or solve a problem.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card hoverable">
+          <br/>
+          <h6 class="card-title blue-text text-darken-2 center">Design & Development</h6>
+          <br/>
+          <div class="card-image">
+            <img src="{% static 'Images/code_python.svg' %}" width="179" height="135">
+          </div>
+          <div class="card-content">
+            <p>AI governance streamlines the policy considerations to allow the developers to focus on building the solution. The AI support team will ensure compliance with the TBS Directive on Automated Decision-Making. </p>
+          </div>
+          <div class="card-action">
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card hoverable">
+          <br/>
+          <h6 class="card-title blue-text text-darken-2 center" >Implementation</h6>
+          <br/>
+          <div class="card-image">
+            <img src="{% static 'Images/data_process.svg' %}" width="179" height="135">
+          </div>
+          <div class="card-content">
+            <p>When the decision is made to move the AI solution to implementation, relevant stakeholders are tasked with making it happen. The AI support team works with developers to deliver the AI model and measure its success overtime.
+            </p>
+          </div>
+          <div class="card-action">
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Support Team -->
+
+    <br/>
+    <h5 class="center" id="supportfunction">AI Support Team</h5>
+    <p>The AI Support Function is a team made up of employees from both Information Innovation and Technology Branch (IITB) and the Chief Data Office (CDO). This multidisciplinary team is here to support developers through the bureaucracy, making sure all boxes are checked and the solution is implemented effectively and ethically.</p>
+    <br/>
+
+    <div class="row">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content black-text center">
+            <img id="supportimg" src="{% static 'Images/person_1.png' %}" alt="Lorne" width="125" height="125">
+            <h6>Lorne Powell</h6>
+            <p>Policy Analyst, CDO</p>
+            <td>
+            <a href="#">
+              <i class="fas fa-envelope-open-text"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            </td>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content black-text center">
+            <img id="supportimg" src="{% static 'Images/person_2.png' %}" alt="person2" width="125" height="125">
+            <h6>Jennifer Lee</h6>
+            <p>Data Scientist , CDO</p>
+            <td>
+              <a href="#">
+                <i class="fas fa-envelope-open-text"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              </td>
+          </div>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-content black-text center">
+            <img id="supportimg" src="{% static 'Images/person_3.png' %}" alt="person3" width="125" height="125">
+            <h6>Jennifer Lee</h6>
+            <p>Data Scientist , CDO</p>
+            <td>
+              <a href="#">
+                <i class="fas fa-envelope-open-text"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              </td>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s4">
+          <div class="card">
+            <div class="card-content black-text center">
+              <img id="supportimg" src="{% static 'Images/person_4.png' %}" alt="person4" width="125" height="125">
+              <h6>Annie Harvey</h6>
+              <p>Business Analyst, IITB</p>
+              <td>
+                <a href="#">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                </td>
+            </div>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-content black-text center">
+              <img id="supportimg" src="{% static 'Images/person_5.png' %}" alt="person2" width="125" height="125">
+              <h6>Annie Harvey</h6>
+              <p>Business Analyst, IITB</p>
+              <td>
+                <a href="#">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                </td>
+            </div>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-content black-text center">
+              <img id="supportimg" src="{% static 'Images/person_6.png' %}" alt="person3" width="125" height="125">
+              <h6>Jennifer Lee</h6>
+              <p>Data Scientist , CDO</p>
+              <td>
+                <a href="#">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                </td>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <br/>
+    <h5 class="center" id="supportfunction"> Current Projects</h5>
+    <br/>
+    <br/>
+
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <img src="{% static 'Images/ROE_NLP.png' %}"> <!-- random image -->
+          <div class="caption center-align">
+            <h3 class="light blue-text text-darken-3">ROE Comments Automation!</h3>
+            <h5 class="light blue-text text-darken-3">Improving EI using Natural Language Processing.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+          <div class="caption left-align">
+            <h3>Left Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+          <div class="caption right-align">
+            <h3>Right Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>This is our big Tagline!</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <br/>
+    <br/>
+
+
+</div>
+
+{% endblock %}

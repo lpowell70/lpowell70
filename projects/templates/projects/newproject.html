@@ -1,0 +1,603 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<style>
+#re{
+  display: none;
+}
+
+#dnd{
+  display: none;
+}
+
+#imp{
+  display: none;
+}
+</style>
+
+
+<main>
+
+    <div class='container'>
+        <h1 class="center" id="title">AI Governance Assurance Tool (Alpha)</h1>
+
+      <div id="intro">
+        <h2 class="sub-title">Introduction</h2>
+
+        <p>Please provide basic project and contact information:</p>
+        <div class="row">
+          <form method="POST" action="{% url 'newproject' %}" enctype="multipart/form-data" class="col s12">
+            {% csrf_token %}
+            <label for="Branch">Project Title</label>
+            <input placeholder="Project Title" id="ProjectTitle" type="text" name="title" class="Validate">
+            <br/>
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Branch Name" id="Branch" name="branch" type="text" class="Validate">
+                <label for="Branch">Branch</label>
+              </div>
+                  <div class="input-field col s6">
+                    <input placeholder="Directorate Name" id="Directorate" name="directorate" type="text" class="Validate">
+                    <label for="Directorate">Directorate</label>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Email" id="Email" name="email" type="email" class="Validate">
+                  <label for="Email">Main Contact Email</label>
+                </div>
+                  <div class="input-field col s6">
+                    <input placeholder="E.g.Employment Insurance, HR Screening" id="Program_Service" name="program_service" type="text" class="Validate">
+                    <label for="Program or Service">Program or Service</label>
+                  </div>
+
+                  <div class="row">
+                      <div class="col s12">
+                        If possible please provide a link to your GitHub project repository:
+                        <div class="input-field inline">
+                          <input id="GitHub_inline" name="giturl" type="GitHub" class="validate">
+                        </div>
+                      </div>
+                   </div>
+
+                <button class="btn waves-effect waves-light" type="submit" name="submitinfo">Get Started
+                    <i class="material-icons right">send</i>
+                </button>
+          </form>
+
+
+              <form action="materialize.css">
+                  <p> Please indicate where in your project you currently are:
+                      </p>
+                      <p><label>
+                          <input type="checkbox" id="re-check"/>
+                          <span>Research and Exploration Phase</span>
+                        </label></p>
+                      <p>
+                        <label>
+                          <input type="checkbox" id="dnd-check" />
+                          <span>Design and Development Phase</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input type="checkbox" id="imp-check" />
+                          <span>Implementation Phase</span>
+                        </label>
+                      </p>
+               </form>
+
+
+  <div id="re">
+     <h2 class="sub-title">Research and Exploration Phase</h2>
+  <p>
+    The objective of this phase is to encourage your team to continue innovating and investigating how AI can be applied to a particular set of data to determine if it can improve a business process or solve a problem.
+  </p>
+  <p>By completing this section of the assurance tool, you will be on your way to:</p>
+      <ul class="list browser-default">
+        <li>Ensuring the department has consent to use the data for the purpose(s) of the project</li>
+        <li>Using the available tools and algorithms to support the exploration, such that existing work can be leveraged</li>
+        <li>Confirming the project is aligned with high-level AI ethical principles</li>
+      </ul>
+
+      <p>
+          <a class="ui-tooltip" title="A business problem is something that has a negative impact on the organization’s ability to deliver products or services to its internal or external clients. It can be related to systems, processes, policies, or even the organization's work culture.
+
+  EXAMPLE: Our inability to track and visualize progress in the processing of Letter of Offers negatively affects the timely onboarding of employees and operations"><span style="cursor: help;">1. What is the business problem or challenge?</span></a>
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="business_problem" class="materialize-textarea"></textarea>
+              <label for="business_problem">Write business problem here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+          2. What is the potential solution for your business problem or challenge?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="problem_solution" class="materialize-textarea"></textarea>
+              <label for="problem_solution">Provide potential solution here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+          3. What data are/will you be using?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="solution_data" class="materialize-textarea"></textarea>
+              <label for="solution_data">Describe the data here (e.g. word documents)</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <p>
+        4.	Does the data contain or will the solution involve any <a class="ui-tooltip" title="Personal infmormation elements include: Name, Date of birth and/or date of death, gender, medical information,Physical attributes (e.g. height), Client information, employee information, Views and/or opinions,Personal identifying number (e.g. SIN), etc."><span style="cursor: help;">personal information</span></a>?
+      </p>
+      <p><label>
+          <input type="checkbox" />
+          <span>Yes</span>
+        </label></p>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span>No</span>
+        </label>
+      </p>
+      <p>
+          <label>
+            <input type="checkbox" />
+            <span>To be honest, not sure</span>
+          </label>
+        </p>
+        <p>
+        Determine what privacy compliance analysis is required using the: <a href="{% static 'PMD-Template-PrivacyChecklist-current as 2019-08-29.docx'%}" target="_blank" class="waves-effect waves-light btn-small">Privacy Checklist</a>
+        </p>
+      <!-- <p>
+        5. Will the solution provide external services?
+      </p>
+      <p><label>
+          <input type="checkbox" />
+          <span>Yes</span>
+        </label></p>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span>No</span>
+        </label>
+      </p>
+      <p>
+          <label>
+            <input type="checkbox" />
+            <span>To be honest, not sure</span>
+          </label>
+        </p>
+        <p> -->
+        5. Who is/will be performing the research?
+        </p>
+        <p><label>
+            <input type="checkbox" id="check"/>
+            <span>Internal Experts</span>
+          </label></p>
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span>Vendor</span>
+          </label>
+        </p>
+        <p>
+            <label>
+              <input type="checkbox" />
+              <span>Joint</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" />
+              <span>Still exploring options</span>
+            </label>
+          </p>
+          <div class="row">
+            <div class="col s12">
+              Please provide the name of the vendor you will be working with:
+              <div class="input-field inline">
+                <input id="email_inline" type="email" class="validate">
+                <label for="email_inline"></label>
+              </div>
+            </div>
+          </div>
+          <p>
+              6. (optional) What methods /techniques will/might be used modelduring the research? (E.g. link to academic paper, Git, package, name of the method, library, etc.)
+          </p>
+          <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix"></i>
+                    <textarea id="describe_method" class="materialize-textarea"></textarea>
+                    <label for="describe_method">Describe method here</label>
+                  </div>
+                </div>
+                <p>
+                    <label>
+                      <input type="checkbox" />
+                      <span>Not sure what method we will use and would like help from the CDO</span>
+                    </label>
+                  </p>
+              </form>
+              <pre></pre>
+              <a data-target="modal1" id="re-submit" class="btn waves-effect waves-light red lighten-2 btn-large modal-trigger" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </a>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Have fun exploring responsibly!</h4>
+                  <p>Please consider the following as you move forward:</p>
+                  <p><b>Bias and Explainability</b></p>
+                    <pre></pre>
+                    How will you measure and control for bias?
+                    <pre></pre>
+                    <ul class="list">
+                      <li><a class="ui-tooltip" title="1) Societal biases derived from historically biased data (due to discrimination, historical legacy, unfair policies, etc.) and 2) Technically biased data that is more reflective of unintentional human error, data quality issues, or missingness."><span style="cursor: help;">Data bias</span></a></li>
+                      <li><a class="ui-tooltip" title="1) How susceptible is the model to noise? 2) Is there a trade-off between bias and variance?"><span style="cursor: help;"> Algorithmic bias</span></a></li>
+                      <li><a class="ui-tooltip" title="Is there bias related to gender, race, disability, etc.? Does this bias reproduce and amplify harmful stereotypes, causing representational harm?"><span style="cursor: help;">Prejudicial bias (representative harm)</span></a></li>
+                      <li><a class="ui-tooltip" title="Procedural bias refers to bias that may occur when the model is integrated into a larger business process (even in the algorithm and training data itself are free of bias). This can cause allocative harm by unfairly withhold services, opportunities or resources."><span style="cursor: help;"> Procedural bias (allocative harm)</span></a></li>
+                    </ul>
+                    <pre></pre>
+                    How will decisions by the solution be explained?
+                    <pre></pre>
+                    If you’re are looking for help the Data Science team in the Chief Data Office can provide hands on guidance for completing bias and explainability reports.
+                    <pre></pre>
+                    <b>Treasury Board Secretariat Algorithmic Impact Assessment (if external services)</b>
+                    <pre></pre>
+                    The <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32592" target="_blank">TBS Directive on Automated Decision-Making</a> applies to systems that provide external services it calls for completing an Algorithmic Impact Assessment (AIA) prior to the production of any Automated Decision System.
+                    <pre></pre>
+                    For guidance in completing an AIA and meeting all the requirements of the Directive, please contact ________.
+                    <pre></pre>
+                    <b>Additional Support</b>
+                    <pre></pre>
+                    <ul class="list">
+                      <li>Considering and measuring the potential impacts on clients and the dept. please click here for legal services to set up a meeting with you and your team.</li>
+                      <pre></pre>
+                      <li>Compliance with the Privacy act and whether a privacy Impact Assessment is needed please click here for Privacy Management Division resources.</li>
+                      <pre></pre>
+                      <li>How might the AI model fit into the business process? Will this require a change to a system? Click here to request help from IITB’s Data and Analytics Services team.</li>
+                    </ul>
+                    <pre></pre>
+                    This information has also been sent to the email provided during the introduction. If you would like a copy to also be sent to your supervisor, Director or other co-worker please add them below.
+                    <pre></pre>
+                    <div class="row" id='add-client-container'>
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Name</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="icon_email" type="tel" class="validate">
+                        <label for="icon_email">Email</label>
+                      </div>
+                      <i class="small material-icons light-green-text text-darken-2" id="add-client-btn">add_circle_outline</i>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  <div id="dnd">
+    <h2 class="sub-title">Design and Development Phase </h2>
+    <p>
+        Great job making it to the design and development phase of your project! If this is the first time your team has used the AI Governance Assurance Tool for this project please click here.
+    </p>
+    <p>
+        The objective of this phase is to ensure your team gets the relevant stakeholders involved in your project so that the necessary policy considerations are made. These considerations include performance, controlling for bias, IT security, privacy, program integrity, accessibility, ethics and compliance with legislation, policy and directives such as the TBS Algorithmic Impact Assessment. For more information on the policy considerations please see section 4.3 of the ESDC AI Strategy.
+    </p>
+
+    <p>
+        1. How is data set bias, algorithmic bias, prejudicial bias and procedural bias being measured and controlled?
+    </p>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="describe_bias" class="materialize-textarea"></textarea>
+              <label for="describe_bias">Describe here</label>
+            </div>
+          </div>
+          <p><center>OR</center></p>
+    <form action="#">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+      </form>
+    <p>
+        If you are looking for help the Data Science team in the Chief Data Office can provide hands on guidance for completing a bias report:
+    </p>
+    <a class="waves-effect waves-light btn">Bias Report Help</a>
+
+    <p>2.	How will decisions made by the solution be explained?</p>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="describe_decisions" class="materialize-textarea"></textarea>
+              <label for="describe_decisions">Describe here</label>
+            </div>
+          </div>
+          <p><center>OR</center></p>
+    <form action="#">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+      </form>
+      <p>
+          If you are looking for help the Data Science team in the Chief Data Office can provide hands on guidance for completing an explainability report:
+      </p>
+      <a class="waves-effect waves-light btn">Explainability Report Help</a>
+
+      <p>
+        3.	How will/ have the potential impacts on clients and the department been considered and measured?
+      </p>
+      <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix"></i>
+                <textarea id="describe_impact" class="materialize-textarea"></textarea>
+                <label for="describe_impact">Describe impact here</label>
+              </div>
+            </div>
+            <p><center>OR</center></p>
+      <form action="#">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+            </div>
+          </div>
+        </form>
+        <p>
+            You can also Understand and Assess Impact using the <a href="https://ethicstoolkit.ai/" target="_blank" class="waves-effect waves-light btn-small">Ethics and Algorithms Toolkit</a>
+        </p>
+        <p>
+            4. Are all the obligations in Open Source Software (OSS) licensing conditions of the solution understood?
+        </p>
+        <p>Get an assessment from the Intellectual Property Center of Excellence (IP CoE )</p>
+        <a class="waves-effect waves-light btn"> Request IP assessment</a>
+        <p>If Python was used to develop the solution, try our <a href="https://gccode.ssc-spc.gc.ca/DSCV/reusable-components/python-libs-licenses/tree/master" target="_blank" class="waves-effect waves-light btn-small">Licencing Distribution Tool</a></p>
+
+        <p>
+            5. How will the solution be designed such that departmental assets and information are properly safeguarded?
+        </p>
+        <form action="#">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+            </div>
+          </div>
+        </form>
+    </div>
+    </div>
+  </div>
+  <p>
+    6. How is privacy being protected?
+  </p>
+  <form action="#">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Upload your privacy compliance analysis (e.g. PIA)">
+        </div>
+      </div>
+    </form>
+    <button class="btn waves-effect waves-light red lighten-2 btn-large" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+
+
+  </div>
+    <div id="imp">
+        <h2 class="sub-title"> Implementation Phase </h2>
+        <p>
+          The objective of this phase is not to determine if the solution will be implemented, but rather how will it be delivered and how will we measure its success over time. The business area should work with stakeholders to complete all the assurance initiatives needed to control risks and monitor success over-time. The CDO will provide support on AI specific issues and monitoring support will be provided as needed in conjunction with other areas to track changes to the model over-time and protect against reverse engineering. ITTB will help enable the solutions deployment by setting up infrastructure, accessibility and data management support.
+        </p>
+        <p>
+          1. How will clients know they are being served by an automated system?
+      </p>
+      <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix"></i>
+                <textarea id="disclosure" class="materialize-textarea"></textarea>
+                <label for="describe_disclosure">Describe here</label>
+              </div>
+            </div>
+            <p><center>OR</center></p>
+      <form action="#">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+      </form>
+      <p>
+        2. Will the code for the solution be made open and how?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="opencode" class="materialize-textarea"></textarea>
+              <label for="open_code">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        3. What will be the mechanism for appealing decisions that were made/informed by the system?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="appeal" class="materialize-textarea"></textarea>
+              <label for="describe_appeal">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        4. How will data from the solution be collected and stewarded?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="stewarddata" class="materialize-textarea"></textarea>
+              <label for="steward_data">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        5. What infrastructure will support the solution (Inc. Privacy requirements)?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="describeinfrastructure" class="materialize-textarea"></textarea>
+              <label for="describe_infrastructure">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        6. If outsourced, how will dept. operation be safeguarded, given the model accessed by external party?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="safeoutsourced" class="materialize-textarea"></textarea>
+              <label for="describe_safeoutsourced">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        7. How will the solution be protected from reverse-engineering?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="reverseengineering" class="materialize-textarea"></textarea>
+              <label for="describe_reverse-engineering">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        8. How will the model be reviewed and evaluated? How will the solutions performance be monitored?
+      </p>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <textarea id="reviewandmonitoring" class="materialize-textarea"></textarea>
+              <label for="describe_reviewandmonitoring">Describe here</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>
+        9. How will the solution meet accessibility standards?
+      </p>
+      <form action="#">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+      </form>
+      <button class="btn waves-effect waves-light red lighten-2 btn-large" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+
+
+
+      </div>
+
+</main>
+
+
+
+
+
+
+
+
+
+{% endblock %}

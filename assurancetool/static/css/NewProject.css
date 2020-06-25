@@ -1,0 +1,58 @@
+body{
+    color: #474747;
+  }
+  #title{
+    font-size: 32px;
+    font-weight: 800;
+  }
+  .sub-title{
+    font-size: 26px;
+    font-weight: 200;
+    color: #3f863e;
+  }
+  .list{
+    margin-left: 16px;
+  }
+  ul:not(.browser-default) > li{
+    list-style-type: none;
+  }
+  .fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+  }
+  .fixed-action-btn ul:not(.browser-default) > li{
+    list-style-type: none;
+  }
+  .btn-floating.btn-large {
+width: 56px;
+height: 56px;
+padding: 0;
+  }
+  .button-green{
+    color: green;
+  }
+  #add-client-btn{
+    position: absolute;
+    right: -22px;
+    bottom: 26px;
+    cursor: pointer;
+  }
+  #add-client-container{
+    position: relative;
+  }
+
+  #re{
+    display: none;
+  }
+
+  #dnd{
+    display: none;
+  }
+
+  #imp{
+    display: none;
+  }

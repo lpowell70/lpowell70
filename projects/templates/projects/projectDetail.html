@@ -1,0 +1,79 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<main>
+
+  <div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating blue" style="opacity: 0; transform: scale(0.4) translateY(40px) translateX(0px);"><i class="material-icons">attach_file</i></a></li>
+    <li><a class="btn-floating red" href="{% url 'impacttool' %}"><i class="material-icons">insert_chart</i></a></li>
+    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+    <li><a class="btn-floating green" href="{% url 'newproject' %}"><i class="material-icons">publish</i></a></li>
+  </ul>
+</div>
+
+    <div class="container">
+
+      <h3 class="center">{{ projectinfo.title }}</h3>
+      <br/>
+
+      <h5>Project Information</h5>
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">biotech</i>Research & Exploration Phase</div>
+          <div class="collapsible-body">
+            <span>
+              <p class="blue-text text-darken-2">1. What is the business problem or challenge?</p>
+              <p>This is ROE Comments. A projects that uses natural language processing to help improve and streamline the EI Process.</p>
+              <p class="blue-text text-darken-2">2. What is the potential solution for your business problem or challenge?</p>
+              <p>This is ROE Comments. A projects that uses natural language processing to help improve and streamline the EI Process.</p>
+              <p class="blue-text text-darken-2">3. What data are/will you be using?</p>
+              <p>Info Here</p>
+              <p class="blue-text text-darken-2">4.	Does the data contain or will the solution involve any personal information?</p>
+              <p>Info Here</p>
+              <p class="blue-text text-darken-2">5. Who is/will be performing the research?</p>
+              <p>Info Here</p>
+              <p class="blue-text text-darken-2">6. (optional) What methods /techniques will/might be used modelduring the research? (E.g. link to academic paper, Git, package, name of the method, library, etc.)</p>
+              <p>Info Here</p>
+
+           </span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">design_services</i>Design & Development Phase</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">outlined_flag</i>Implementation Phase</div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+      </ul>
+
+      <br/>
+
+
+      <ul class="collection with-header">
+        <li class="collection-header"><h5>Uploaded Files</h5></li>
+        <li class="collection-item"><div>TBS Algorithimic Impact Assessment<a href="{% static 'PMD-Template-PrivacyChecklist-current as 2019-08-29.docx'%}" target="_blank"class="secondary-content"><i class="material-icons">description</i></a></div></li>
+        <li class="collection-item"><div>Bias Report<a href="#!" class="secondary-content"><i class="material-icons">description</i></a></div></li>
+        <li class="collection-item"><div>Explainability Report<a href="#!" class="secondary-content"><i class="material-icons">description</i></a></div></li>
+        <li class="collection-item"><div>Privacy Checklist<a href="{% static 'PMD-Template-PrivacyChecklist-current as 2019-08-29.docx'%}" target="_blank" class="secondary-content"><i class="material-icons">description</i></a></div></li>
+        <li class="collection-item"><div>OSS Licences<a href="#!" class="secondary-content"><i class="material-icons">description</i></a></div></li>
+      </ul>
+      <br/>
+
+
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static 'init.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,845 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+<style>
+body{
+    color: #474747;
+  }
+  #title{
+    font-size: 32px;
+    font-weight: 800;
+  }
+  .sub-title{
+    font-size: 26px;
+    font-weight: 200;
+    color: #3f863e;
+  }
+  .sub-title2{
+    font-size: 20px;
+    font-weight: 200;
+    color: #3d5afe;
+    cursor: pointer;
+  }
+  .list{
+    margin-left: 16px;
+  }
+  .style{
+    background-color: #e0e0e0;
+    width: 624px;
+    border: 0px;
+    padding: 15px;
+    margin: 30px;
+  }
+  ul:not(.browser-default) > li{
+    list-style-type: none;
+  }
+  ol:not(.browswer-default) > li{
+    padding-bottom: 8px;
+  }
+  .fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+  }
+  .fixed-action-btn ul:not(.browser-default) > li{
+    list-style-type: none;
+  }
+  .btn-floating.btn-large {
+width: 56px;
+height: 56px;
+padding: 0;
+  }
+  .button-green{
+    color: green;
+  }
+  .tab {margin-left: 15px;
+  }
+  #add-identify-btn{
+    position: absolute;
+    right: -30px;
+    bottom: 27px;
+    cursor: pointer;
+  }
+  #identifyimpact{
+    position: relative;
+  }
+
+  #part1{
+    display: none;
+  }
+
+  #step1{
+    display: none;
+  }
+
+  #step2{
+    display: none;
+  }
+
+  #step3{
+    display: none;
+  }
+
+  #step4{
+    display: none;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+<!-- Main begins  -->
+
+<main>
+
+   <div class='container'>
+     <h1 class="center" id="title">AI Impact Mitigation Toolkit</h1>
+     <h2 class="sub-title">Introduction </h2>
+
+     <p>
+       This toolkit is designed to help AI projects at Employment and Social Development Canada measure, assess and mitigate ethical risks when building or acquiring algorithms. It was developed leveraging the ethicstoolkit.ai developed by the Center for Government Excellence at Johns Hopkins University.  This toolkit also integrates the ESDC Gender-based Analysis Plus (GBA+) process to allow projects to assess the impacts on diverse groups of people, taking into account gender and other intersecting identify factors such as, age, education, language and disability.
+     </p>
+     <p>
+       The toolkit is really a process. It walks teams through a series of questions to help 1) understand the ethical risks posed by the use of an algorithm and then 2) identify what teams can do to minimize those ethical risks.
+     </p>
+     <p>
+       The toolkit is broken into two parts with multiple steps:
+     </p>
+     <p>
+       <b>Part 1: Assess Algorithm Risk</b>
+     </p>
+     <ul class='list browser-default'>
+       <li>Step 1: Understand and assess impact</li>
+       <li>Step 2: Assess appropriate data use risk</li>
+       <li>Step 3: Assess accountability risk</li>
+       <li>Step 4: Assess third party methodology risk</li>
+     </ul>
+     <p>
+       <b>Part 2: Manage Algorithm Risk</b>
+     </p>
+     <p>
+     Using the results from the assessment in “Part 1” this section, identifies the appropriate mechanisms to help mitigate some of the risks using a Risk-to-mitigation matching framework.
+     </p>
+     <a data-target= "modal1" class= "waves-effect waves-light btn-large modal-trigger">Let's get started!</a>
+     <div id="modal1" class="modal">
+       <div class="modal-content">
+         <h4>Before you get started!</h4>
+         <p>
+           Please review or provide the contact information for the project:
+         </p>
+         <p>
+           <div class="row">
+             <form class="col s12">
+               <div class="row">
+                 <div class="input-field col s6">
+                   <input placeholder="Branch Name" id="Branch" type="text" class="Validate">
+                   <label for="Branch">Branch</label>
+               </div>
+               <div class="input-field col s6">
+                 <input placeholder="Directorate Name" id="Directorate" type="text" class="Validate">
+                 <label for="Directorate">Directorate</label>
+               </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s6">
+               <input placeholder="Email" id="Email" type="text" class="Validate">
+               <label for="Email">Email</label>
+             </div>
+             <div class="input-field col s6">
+               <input placeholder="E.g.Employment Insurance, HR Screening" id="Program_Service" type="text" class="Validate">
+               <label for="Program or Service">Program or Service</label>
+               </div>
+             </form>
+           </div>
+         </p>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="readytostart">Ready to start</a>
+       </div>
+       </div>
+     </div>
+
+<div id="part1">
+ <h2 class="sub-title">Part 1: Assess Algorithm Risk </h2>
+ <p>
+   <b>Introduction</b>
+ </p>
+ <p>
+   Managing algorithms requires an understanding of the risks to all parties involved. There are four overarching sets of risks that must be evaluated when using algorithms
+ </p>
+ <p>
+   <ol class='line-height'>
+     <li><b>Impact</b> examines the algorithm in terms of the effects it will have on people and property.</li>
+     <li><b>Appropriate Use</b> inspects the relationship between the data being used in the algorithm and the purpose for which the data was collected and perceptions of the anticipated use.</li>
+     <li><b>Accountability</b> surfaces how much involvement people have in the ongoing use of the algorithm, including whether automated decisions can be clearly explained to anyone.</li>
+     <li><b>Bias</b> explores the underlying influence of the data and the people who helped build the algorithm.</li>
+   </ol>
+ </p>
+ <p>
+   In this part of the toolkit, you will evaluate each of these risks through a series of steps. Each step explores an individual factor. These factors are then rolled up to help you provide stakeholders with a high-level understanding of risk. The risk levels (and in some cases, individual factors) help to determine your mitigation plan (Part 2 of the toolkit).
+ </p>
+ <p>
+
+ <h3 class="sub-title2" id="step1tl">Step 1: Understand and Assess Impact</h3>
+ <div id="step1">
+ </p>
+ <p>
+   <b>A.</b> Identify who or what will be impacted and the proximity of the impact by adding as many as you can think of below. In addition, please identify the type of impact (this should include workers that might be impacted).
+ </p>
+ <div class="row" id='identifyimpact'>
+   <div class="input-field col s4">
+     <input placeholder="(e.g EI applicants)" id="who_what" type="text" class="validate">
+     <label for="who_what">Who or what is impacted?</label>
+   </div>
+ <div class="input-field col s4">
+   <select>
+     <option value="" disabled selected>Choose your option</option>
+     <option value="1">Primary</option>
+     <option value="2">Secondary</option>
+     <option value="3">Unexpected/Unintended</option>
+   </select>
+   <label>Proximity of impact</label>
+ </div>
+ <div class="input-field col s4">
+   <select>
+       <option value="" disabled selected>Choose your option</option>
+       <option value="1">Access to goods, benefits or services</option>
+       <option value="2">Financial</option>
+       <option value="3">Property or equipment</option>
+       <option value="4">Reputation</option>
+       <option value="5">Emotional</option>
+       <option value="6">Life/safety</option>
+       <option value="7">Liberty/freedom</option>
+       <option value="8">Rights/intellectual Property</option>
+       <option value="9">Workforce Implementations</option>
+   </select>
+   <label>Type of impact</label>
+ </div>
+ <i class="small material-icons light-green-text text-darken-2" id="add-identify-btn">add_circle_outline</i>
+</div>
+
+ <div class='row'>
+   <div class='col-xs-12'>
+     <a class="deep-purple lighten-1 btn modal-trigger" href="#modal2">Click here for more information</a>
+   </div>
+ </div>
+ <p>
+   <b>B.</b> Gender-Based Analysis Plus Dimensions
+ </p>
+   <p>
+     At ESDC, GBA+ has been conceptualized as a process, a tool, a product, and a competency that employees should apply to all aspects of their work.
+   </p>
+   <p>
+     Applying GBA+ is an analytical process that assesses the potential impacts of policies, programs, services, and other initiatives on diverse groups of people, taking into account gender and other intersecting identify factors such as, for example, age, education, language and disability. Often, engaging in this process is referred to as applying a GBA+ lens. It requires a good understanding of the target population, the uncovering of assumptions and biases and the use of evidence and data to support analysis. A GBA+ lens provides a structured approach to inform decision-making so that policies and programs will further the overall commitment to achieve equity between  all Canadians.
+   </p>
+   <p>
+     The <a href="{% static 'SSPB-CPMD-GBA+HowtoGuide 20180727-EN.docx' %}"target="_blank">GBA+ How-to-Guide</a> will help you answer the four questions below. You can also schedule a workshop with the GBA+ Secretariat and CDO AI-support team here <b>(this will be a clickable link that will populate an email)</b>.
+   </p>
+   <p class="style">
+     As a start, think about the "who's" you idenitified above: are there demographic considerations that can be made? <b>For example:</b> Will the proportion of each segment of a diverse group (e.g. gender) receive the positive outcomes of decisions at equal rates? A positive outcome is the preferred decision, such as access to a benifit like Employment Insurance. The difference should be ideally zero, but this is usually not the case. How might this be identifed, measured,mitgated and monitored over time?
+   </p>
+   <p class="tab">
+     1. Could the solution lead to one group (e.g. men) being granted more rights or opportunities over others? Does it have the potential to perpetuate discrimination or inequality of a historically marginalized group?
+   </p>
+   <div class="row">
+     <form class="col s12">
+       <div class="row">
+         <div class="input-field col s12">
+           <textarea id="GBAQ1" class="materialize-textarea"></textarea>
+           <label for="textarea1">Textarea</label>
+         </div>
+       </div>
+     </form>
+   </div>
+   <p class="tab">
+     2. What data sources and/or evidence did you consider to support the above conclusion?
+   </p>
+   <div class="row">
+     <form class="col s12">
+       <div class="row">
+         <div class="input-field col s12">
+           <textarea id="GBAQ2" class="materialize-textarea"></textarea>
+           <label for="textarea1">Textarea</label>
+         </div>
+       </div>
+     </form>
+   </div>
+   <p class="tab">
+     3. What response to the above considerations are being proposed within the context of the project, initiative or service? What is the anticipated impact?
+   </p>
+   <div class="row">
+     <form class="col s12">
+       <div class="row">
+         <div class="input-field col s12">
+           <textarea id="GBAQ3" class="materialize-textarea"></textarea>
+           <label for="textarea1">Textarea</label>
+         </div>
+       </div>
+     </form>
+   </div>
+   <p class="tab">
+     4. How will you monitor the performance of the proposed project, initiative or service for emerging GBA+ impacts throughout implementation?
+   </p>
+   <div class="row">
+     <form class="col s12">
+       <div class="row">
+         <div class="input-field col s12">
+           <textarea id="GBAQ4" class="materialize-textarea"></textarea>
+           <label for="textarea1">Textarea</label>
+         </div>
+       </div>
+     </form>
+   </div>
+ <a class= "waves-effect waves-light red lighten-2 btn-large modal-trigger" href="#modal3">Submit Part 1</a>
+ <div id="modal3" class="modal">
+     <div class="modal-content">
+       <h4>Step 1 Potential Mitigations</h4>
+       <p>
+         <b>Engage Impacted Communities:</b> Effective community engagement is people-centered, partnerships-driven, and power-aware. Engagement with the community should be social (using existing social networks and connections), technical (skills, tools, and digital spaces), physical (commons), and on equal terms (aware of and accounting for power). An example of engaging impacted communities around open data could look like: the co-production of a policy and open data prioritization, the public creating innovative tools from raw data, and the public then interacting and engaging with data apps and visualization tools.
+       </p>
+       <p>
+         <b>Public Performance Monitoring:</b> The purpose of public performance monitoring is to identify areas of good performance and areas where performance can be improved. Performance information should be focused (on the agency’s objectives and services), appropriate (to, and useful for, the stakeholders who are likely to use it), balanced, (giving a picture of what the agency is doing, covering all significant areas of work), robust (in order to withstand organizational changes or individuals leaving), integrated (into the organization), and cost-effective (balancing the benefits of the information against the costs).
+       </p>
+       <p>
+         <b>Institutional Review:</b> An institutional review might take the form of a committee established to review and approve applications for research projects. Consider having your project proposal reviewed by the Data and Privacy Committee (DPC) or the Corporate Management Committee (CMC).
+       </p>
+       <p>
+         <b>Public Advisory Group:</b> Public advisory groups are typically comprised to key stakeholders related to a project as well as representatives of the general public, selected to inform the development of a project. Such a group should have decision-making authority for the program.
+       </p>
+       <p>
+         <b>Engage with Workers and Unions:</b> If the solution will impact how employees do their work it will be necessary to engage stakeholders from the Human Resources Services Branch, labour relations, unions and the Public Service Commission to consider the impacts a particular solution may have on the number of employees needed in a particular process and changes to the nature of their work.
+       </p>
+     </div>
+     <div class="modal-footer">
+       <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="submitpart1">Done</a>
+     </div>
+   </div>
+</div>
+
+<h3 class="sub-title2" id="step2tl">Step 2: Assess Appropriate Data Use</h3>
+<div id=step2>
+ <p>
+   This step assesses the data inputs of the solution in the contexts of consistency, compatibility, reputation and perception. This will help us understand the “ethical risk” inherent in using sources of information for the intended algorithm.
+ </p>
+ <p>
+   <b>A. Consistency and Compatibility of Use</b> - For what purpose were the data inputs originally created, collected or obtained? How compatible is the new use with the original reason for data collection?
+ </P>
+ <form action="#">
+     <p>
+       <label>
+         <input class= "with-gap" name="group1" type="radio" checked />
+         <span><b>Yes</b> - Our use of the data for this algorithm is consistent and compatible with the purposes and context under which the data was obtained. This includes applicable laws and regulations. </span>
+       </label>
+     </p>
+     <p>
+       <label>
+         <input class= "with-gap" name="group1" type="radio" />
+         <span><b>Somewhat</b> - Our use of the data for this algorithm is somewhat consistent and compatible with the purposes and context under which the data was obtained.</span>
+       </label>
+     </p>
+     <p>
+       <label>
+         <input class="with-gap" name="group1" type="radio"  />
+         <span><b>Unknown</b> - We are not familiar with the purpose and context for how this data was obtained. Can we trust the data because we don’t know how it was collected?</span>
+       </label>
+     </p>
+     <p>
+       <label>
+         <input class= "with-gap" name="group1" type="radio"  />
+         <span><b>No</b> - Our use of the data for this algorithm is not consistent and compatible with (or prohibited by) the purposes and context under which the data was obtained.</span>
+       </label>
+     </p>
+   </form>
+   <p>
+     <b>B. Reputation and Perception from Use</b> - What are the reputational and perceptions risks from your use of this data for the purposes of this algorithm? If this is public knowledge, how will people react? Does the use of the data comply with <a href="./documents/SSPB-CPMD-GBA+HowtoGuide 20180727-EN.docx"target="_blank">Public Sector Values and Ethics</a>?
+   </p>
+   <form action="#">
+       <p>
+         <label>
+           <input class= "with-gap" name="group2" type="radio" checked />
+           <span><b>Supportive</b> - Most people would agree with our use of this data for the intended purposes of the algorithm. Though, as with any public endeavor, some will disagree with this use. Usage of the data for this specific purpose is defensible with precedence and meets the expected conduct of federal public servants.</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class= "with-gap" name="group2" type="radio" />
+           <span><b>Mixed</b> - We expect several groups of people would be concerned with our use of this data for the intended purposes of the algorithm. The is a common practice that has not been legally challenged. Defensible without precedence.</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class="with-gap" name="group2" type="radio"  />
+           <span><b>Not supportive</b> - We expect most people would object to our use of this data for the intended purposes of the algorithm. Arguably defensible to achieve goals.</span>
+         </label>
+       </p>
+     </form>
+     <a class= "waves-effect waves-light red lighten-2 btn-large modal-trigger" href="#modal4">Submit Part 2</a>
+ <div id="modal4" class="modal">
+     <div class="modal-content">
+       <h4>Step 2 Potential Mitigations</h4>
+       <p>
+         <b>Dialogue with the Public:</b> Starting a dialogue with the public about new uses of data could be as simple as creating a survey and surveying residents, sending out a weekly or biweekly memo or newsletter to inform residents of new uses, holding town hall meetings in order to discuss the data, publishing open data online, and/or maintaining a public Github. (If "low" or "medium" is selected).
+       </p>
+       <p>
+         <b>Alternate Data Sources:</b> Stop the controversy before it starts: Do not start a project with data that has the potential to be harmful. Find or create new data sources by completing a data inventory to locate more appropriate data, researching your topic online to find new data, or collecting new data. (If "high" is selected).
+       </p>
+       <p>
+         <img class="materialboxed" width="644" src="{% static '2.3ImpactScale.PNG' %}">
+       </p>
+     </div>
+     <div class="modal-footer">
+       <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="submitpart2">Done</a>
+     </div>
+   </div>
+ </div>
+
+ <h3 class="sub-title2" id="step3tl">Step 3: Assess Accountability</h3>
+ <div id= "step3">
+   <p>
+     <b>A. Determine level of Automation </b> - What level of automation will/is the solution creating?
+   </p>
+   <form action="#">
+       <p>
+         <label>
+           <input class= "with-gap" name="group3" type="radio" checked />
+           <span><b>Low, human mediated</b> - The algorithm is being used to inform an individual or group of individuals. Ultimately, a human is making the final assessment. The algorithm does not include strong recommendations or make conclusions (e.g. policy decisions, risk factors, etc.).</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class= "with-gap" name="group3" type="radio" />
+           <span><b>Medium, algorithm mediated</b> - The algorithm structures, constrains or otherwise makes recommendations for actions or decisions. The action or decision is ultimately made by an individual or group of individuals (e.g. fraud detection, triaging, etc.).</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class="with-gap" name="group3" type="radio"  />
+           <span><b>High, algorithmically determined</b> - The algorithm automatically takes actions or makes decisions with no interference by a person or group (e.g. inspection prioritization, etc.).</span>
+         </label>
+       </p>
+     </form>
+     <p>
+       <b>B. Determine level of Explainability </b> - How easy it is to explain the algorithm and how it works. (Think: “How well can I explain to a layperson?”)
+     </p>
+     <form action="#">
+         <p>
+           <label>
+             <input class= "with-gap" name="group4" type="radio" checked />
+             <span><b>Easy, rules-based</b> - The algorithm is straightforward to explain and does not require sophisticated understanding of statistics and modeling techniques.</span>
+           </label>
+         </p>
+         <p>
+           <label>
+             <input class= "with-gap" name="group4" type="radio" />
+             <span><b>Medium</b> - The algorithm can be explained but does require more understanding or careful explanation of statistical and modeling techniques.</span>
+           </label>
+         </p>
+         <p>
+           <label>
+             <input class="with-gap" name="group4" type="radio"  />
+             <span><b>Hard</b> - The algorithm is challenging or even impossible to explain even to sophisticated users (e.g. “black box”).</span>
+           </label>
+         </p>
+       </form>
+       <p>
+         <b>C. Determine level of Auditability </b> - How easy it is to review or audit the algorithm function and inputs / outputs. How will the algorithm produce each / any specific result?
+       </p>
+       <form action="#">
+           <p>
+             <label>
+               <input class= "with-gap" name="group5" type="radio" checked />
+               <span><b>Easy</b> - We can access to audit and review the algorithm as needed and have a means to do so.</span>
+             </label>
+           </p>
+           <p>
+             <label>
+               <input class= "with-gap" name="group5" type="radio" />
+               <span><b>Medium</b> - If we need to, we can access the algorithm to audit and review it. We need to figure out what a meaningful audit and review would look like.</span>
+             </label>
+           </p>
+           <p>
+             <label>
+               <input class="with-gap" name="group5" type="radio"  />
+               <span><b>Hard</b> - We have no access to the algorithm or how it functions (e.g. becuase the vendor will not give acess). We have no feasible means for determining how we would audit and review it.</span>
+             </label>
+           </p>
+         </form>
+         <a class= "waves-effect waves-light red lighten-2 btn-large modal-trigger" href="#modal5">Submit Part 3</a>
+         <div id="modal5" class="modal">
+             <div class="modal-content">
+               <h4>Step 3 Potential Mitigations</h4>
+               <p>
+                 <b>Automated Testing Tools</b>: Automating testing tools (i.e. confusion matrices when evaluating classification models) to evaluate an algorithm’s performance can be a way to integrate systematic checks into the lifecycle of an algorithm. If the aforementioned classification model is falsely classifying 70% of cases, the automated testing tool can be programmed to produce “STOP” in red letters. (if low or medium)
+               </p>
+               <p>
+                 <b>Human Adjudication Mechanism</b>: A human adjudication mechanism, being a process through which a person can introduce his or her own discernment, can be a great addition to a project involving an algorithm or algorithms. Ensuring that this mechanism can then feed into the tuning of an algorithm can be a great addition to the project. (if low, medium or high)
+               </p>
+               <p>
+                 <b>Human Intervention</b>: The solution may need to require human intervention before executing each algorithmic decision. (if low or medium)
+               </p>
+               <p>
+                 <b>Capture Inputs and Machine state(s)</b>: Ensure the relevant inputs and machine state(s) are captured in perpetuity for each decision. (if high)
+               </p>
+               <p>
+                 <b>Periodic Evaluation</b>: Evaluate human-intervened decisions periodically to control for unintended rater bias.(if high)
+               </p>
+               <p>
+                 <center><b>Use the explainability and auditability scores to assign an accessibility score</b></center>
+               </p>
+               <p>
+                 <img class="materialboxed" width="644" src="{% static '3.1accessibility score.PNG' %}">
+               </p>
+               <p>
+                 <center><b>Combine the automation and accessibility scores (from above) to identify the level of accountability risk posed by the use of the algorithm.</b></center>
+               </p>
+               <p>
+                 <img class="materialboxed" width="644" src="{% static '3.2Assign accountability.PNG' %}">
+               </p>
+             </div>
+             <div class="modal-footer">
+               <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="submitpart3">Done</a>
+             </div>
+           </div>
+ </div>
+
+ <h3 class="sub-title2" id="step4tl">Step 4: Assess Third Party Methodology</h3>
+ <div id="step4">
+   <p>
+     When procuring an algorithm or adapting an algorithm created elsewhere, we need to assess potential risk in the creation and maintenance of the algorithm. While this is, in part, a portion of accountability risk, using third party algorithms requires additional analysis.
+   </p>
+   <p>
+     Below is a list of questions to help assess the third party algorithim/solution. These questions should be answerd during the design and development pase of your project or initiative. Each of the questions below should be answered with a “yes” or a “no”.
+   </p>
+   <p>
+     A point will be added for each statment that is answered "yes". This will determine the third party methodology risk. (Note: If none of the above third party methodology questions apply to your situation, it will be classified as high risk.)
+   </p>
+   <p>
+     <b>1.</b> We are the direct owners of the algorithm (it was developed in-house rather than through a third party).
+   </p>
+   <form action="#">
+       <p>
+         <label>
+           <input class= "with-gap" name="group6" type="radio" checked />
+           <span>YES</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class= "with-gap" name="group6" type="radio" />
+           <span>NO</span>
+         </label>
+       </p>
+       <p>
+         <label>
+           <input class="with-gap" name="group6" type="radio"  />
+           <span>UNKNOWN</span>
+         </label>
+       </p>
+     </form>
+     <p>
+       <b>2.</b> We (or the creators) involved subject matter experts in the design of the algorithm.
+     </p>
+     <form action="#">
+         <p>
+           <label>
+             <input class= "with-gap" name="group7" type="radio" checked />
+             <span>YES</span>
+           </label>
+         </p>
+         <p>
+           <label>
+             <input class= "with-gap" name="group7" type="radio" />
+             <span>NO</span>
+           </label>
+         </p>
+         <p>
+           <label>
+             <input class="with-gap" name="group7" type="radio"  />
+             <span>UNKNOWN</span>
+           </label>
+         </p>
+       </form>
+       <p>
+         <b>3.</b> Assumptions made by the creators were outwardly explained. We know the motives of the developer or vendor.
+       </p>
+       <form action="#">
+           <p>
+             <label>
+               <input class= "with-gap" name="group8" type="radio" checked />
+               <span>YES</span>
+             </label>
+           </p>
+           <p>
+             <label>
+               <input class= "with-gap" name="group8" type="radio" />
+               <span>NO</span>
+             </label>
+           </p>
+           <p>
+             <label>
+               <input class="with-gap" name="group8" type="radio"  />
+               <span>UNKNOWN</span>
+             </label>
+           </p>
+         </form>
+         <p>
+           <b>4.</b> We (or the creators) have discussed the proposed outcomes of the algorithm with a diverse audience.
+         </p>
+         <form action="#">
+             <p>
+               <label>
+                 <input class= "with-gap" name="group9" type="radio" checked />
+                 <span>YES</span>
+               </label>
+             </p>
+             <p>
+               <label>
+                 <input class= "with-gap" name="group9" type="radio" />
+                 <span>NO</span>
+               </label>
+             </p>
+             <p>
+               <label>
+                 <input class="with-gap" name="group9" type="radio"  />
+                 <span>UNKNOWN</span>
+               </label>
+             </p>
+           </form>
+           <p>
+             <b>5.</b> We (or the creators) periodically review decisions the algorithm has made and revise it to meet changing needs.
+           </p>
+           <form action="#">
+               <p>
+                 <label>
+                   <input class= "with-gap" name="group10" type="radio" checked />
+                   <span>YES</span>
+                 </label>
+               </p>
+               <p>
+                 <label>
+                   <input class= "with-gap" name="group10" type="radio" />
+                   <span>NO</span>
+                 </label>
+               </p>
+               <p>
+                 <label>
+                   <input class="with-gap" name="group10" type="radio"  />
+                   <span>UNKNOWN</span>
+                 </label>
+               </p>
+             </form>
+             <p>
+               <b>6.</b> We (or the creators) have a way to rebuild and/or re-train the algorithm from the ground up when new variables are introduced.
+             </p>
+             <form action="#">
+                 <p>
+                   <label>
+                     <input class= "with-gap" name="group11" type="radio" checked />
+                     <span>YES</span>
+                   </label>
+                 </p>
+                 <p>
+                   <label>
+                     <input class= "with-gap" name="group11" type="radio" />
+                     <span>NO</span>
+                   </label>
+                 </p>
+                 <p>
+                   <label>
+                     <input class="with-gap" name="group11" type="radio"  />
+                     <span>UNKNOWN</span>
+                   </label>
+                 </p>
+               </form>
+               <p>
+                 <b>7.</b> We (or the creators) will monitor the algorithm on a regular basis to ensure it is operating the way we intend.
+               </p>
+               <form action="#">
+                   <p>
+                     <label>
+                       <input class= "with-gap" name="group12" type="radio" checked />
+                       <span>YES</span>
+                     </label>
+                   </p>
+                   <p>
+                     <label>
+                       <input class= "with-gap" name="group12" type="radio" />
+                       <span>NO</span>
+                     </label>
+                   </p>
+                   <p>
+                     <label>
+                       <input class="with-gap" name="group12" type="radio"  />
+                       <span>UNKNOWN</span>
+                     </label>
+                   </p>
+                 </form>
+                 <p>
+                   <b>8.</b> We (or the creators) will piloted/tested the algorithm against a subset of real-world decisions before fully deploying it to influence all decisions.
+                 </p>
+                 <form action="#">
+                     <p>
+                       <label>
+                         <input class= "with-gap" name="group13" type="radio" checked />
+                         <span>YES</span>
+                       </label>
+                     </p>
+                     <p>
+                       <label>
+                         <input class= "with-gap" name="group13" type="radio" />
+                         <span>NO</span>
+                       </label>
+                     </p>
+                     <p>
+                       <label>
+                         <input class="with-gap" name="group13" type="radio"  />
+                         <span>UNKNOWN</span>
+                       </label>
+                     </p>
+                   </form>
+     <a class= "waves-effect waves-light red lighten-2 btn-large modal-trigger" href="#modal6">Submit Part 4</a>
+       <div id="modal6" class="modal">
+           <div class="modal-content">
+             <h4>Step 4 Potential Mitigations</h4>
+             <p>
+               A point will be added for each statement answered “yes”. (Note: If none of the above third party methodology questions apply to the situation, this toolkit classifies this as high risk.)
+             </p>
+             <p>
+               <img class="materialboxed" width="375" src="{% static '4.Third Party Risk.PNG' %}">
+             </p>
+             <p>
+               <b>Transfer Liability</b>: Transfer liability risk to contractor if third party risk is low or medium.
+             </p>
+             <p>
+               <b>Independent Monitoring</b>: Implement independent monitoring through an internal or 2nd third party if third party risk is low or medium. Shifting the monitoring of an algorithm to an internal or additional third party adds one more level of subjectivity to an algorithm’s methodology.
+             </p>
+             <p>
+               <b>Asses Desired Outcomes</b>: If the third party risk is high, include contractor incentives for desired outcomes. Further implementation decision will be needed to be made if those outcomes do not align with the <a href="https://www.csps-efpc.gc.ca/About_Us/cve-eng.aspx" target="_blank">public service code of values and ethics</a>.
+             </p>
+           </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="submitpart4">Done</a>
+           </div>
+         </div>
+ </div>
+
+
+
+
+
+
+
+</div>
+
+
+ <div id="modal2" class="modal modal-fixed-footer">
+       <div class="modal-content">
+         <h4>Describing the impact</h4>
+         <p><b>Who or what will be impacted</b></p>
+         <p>
+           Thinking about who or what will be impacted is an important step in understadning how systems will impact people. Work with your team to think about who or what might be impacted by walking through the business process the system is part of.
+         </p>
+         <p>For example</p>
+         <p>
+           Creating a ChatBot that help new employees find information will not only impact the new employees it may also impact supervisors, managers, HR specalists and other employees. It may also impact how internal communcation functions get information to employees.
+         </p>
+         <p><b>Proximity of Impact</b></p>
+         <p>
+           Proximity of impact seeks to identify how close or immidate the impact is to the "who or what" you identifed.
+         </p>
+         <p>
+           <ul>
+             <li> <b>Primary.</b> These are the immediate objectives of the algorithm, that is the people, places or things the algorithm provides input into.</li>
+             <li><b>Secondary.</b> These are the people, places or things that may feel the results of the algorithm as a function of its impact on the primary impactees.</li>
+             <li> <b>Unexpected/unintended.</b> These are the people, places or things that may feel unintended or unexpected impacts from the algorithm. While you may not know these, you can take time to brainstorm them.</li>
+           </ul>
+         </p>
+         <p><b>Types of impact</b></p>
+         <p>
+           Your algorithm will have at least one or more areas of impact. The table below describes the different types of impact. One type of impact may implicate another. For example, restaurant reviews impact reputation which in turn impact financial health. The goal of this step is to ensure sure we understand the nature of the impacts.
+         </p>
+         <p>
+           <table>
+             <tr>
+               <th>Type</th>
+               <th>Description</th>
+             </tr>
+             <tr>
+               <td>Access to goods, benefits or services</td>
+               <td>These types of algorithms inform who, what or where does or does not receive access to goods, benefits or services. This can include access to insurance, government benefits, housing opportunities, education, maintenance or prevention services, recreation etc.</td>
+             </tr>
+             <tr>
+               <td>Financial</td>
+               <td>These types of algorithms impact the financial health of individuals, groups, entities or areas.</td>
+             </tr>
+             <tr>
+               <td>Property or equipment</td>
+               <td>These types of algorithms impact the quality or value of property or equipment.</td>
+             </tr>
+             <tr>
+               <td>Reputation</td>
+               <td>These types of algorithms impact the reputation of an individual, group, entity, or location.</td>
+             </tr>
+             <tr>
+               <td>Emotional</td>
+               <td>These types of algorithms impact the emotional health and well-being of an individual or group of individuals.</td>
+             </tr>
+             <tr>
+               <td>Life/safety</td>
+               <td>These types of algorithms impact the life or safety of an individual, group, entity, or location.</td>
+             </tr>
+             <tr>
+               <td>Privacy</td>
+               <td>These types of algorithms impact the privacy of an individual or group.</td>
+             </tr>
+             <tr>
+               <td>Liberty/freedom</td>
+               <td>These types of algorithms impact the liberty / freedom of an individual, group, or entity.</td>
+             </tr>
+             <tr>
+               <td>Rights/intellectual Property</td>
+               <td>These types of algorithms impact the rights / intellectual property of an individual, group or entity.</td>
+             </tr>
+             <tr>
+               <td>Workforce Implementations</td>
+               <td>These types of algorithms impact how employees do their work. Changes an employee’s tasks may result in changes to the employee’s works descriptions and trigger changes to classification or organizational design.</td>
+             </tr>
+           </table>
+         </p>
+         <p>
+             For more information on impacts please refer to the ESDC AI Strategy and the reports on topics surrounding AI and technology.
+         </p>
+       </div>
+       <div class="modal-footer">
+         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+       </div>
+
+
+</div>
+
+   </main>
+   <br/>
+   <br/>
+   <br/>
+
+
+
+
+
+
+
+
+{% endblock %}
