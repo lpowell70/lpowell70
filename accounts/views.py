@@ -34,8 +34,8 @@ def login(request):
 
 @csrf_exempt
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('home')
-    # Need to route to home page
+    # if request.method == 'POST':
+    #     auth.logout(request)
+    #     return redirect('home')
+    # # Need to route to home page
     return render(request, 'accounts/signup.html')

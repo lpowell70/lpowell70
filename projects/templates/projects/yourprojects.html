@@ -19,6 +19,7 @@
           <span class="card-title">{{ projectinfo.title }}</span>
           <div class="card-image">
             <img class="align-center" src="{% static 'Images/RandESmall.svg' %}" width="179" height="135">
+            <!-- the goal should be to thave the image reflect the phase the project is in. -->
           </div>
           <p>This is ROE Comments. A projects that uses natural language processing to help improve and streamline the EI Process.</p>
         </div>
@@ -28,6 +29,8 @@
       </div>
     </div>
     {% endfor %}
+
+    <!--  the stuff below is commented out becuase it will not be needed once the projcts are able to be populated themselves. I have left it to sure a potential setup. -->
 
     <!-- <div class="col s6 m6">
       <div class="card  blue-grey darken-1">
